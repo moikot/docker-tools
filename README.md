@@ -2,44 +2,38 @@
 [![](https://img.shields.io/github/license/moikot/docker-tools)](https://github.com/moikot/docker-tools/blob/master/Dockerfile "License")
 [![](https://img.shields.io/docker/cloud/build/moikot/docker-tools)](https://hub.docker.com/r/moikot/docker-tools/builds "Build")
 [![](https://images.microbadger.com/badges/image/moikot/docker-tools.svg)](https://hub.docker.com/r/moikot/docker-tools/tags "Image Tags")
-[![](https://images.microbadger.com/badges/version/moikot/docker-tools.svg)](https://hub.docker.com/r/moikot/docker-tools/tags "Image Tags")
 [![](https://images.microbadger.com/badges/commit/moikot/docker-tools.svg)](https://github.com/moikot/docker-tools/blob/master/Dockerfile "Dockerfile")
 
 A Docker container with a set of Bash scripts for:
-1. Building and tagging Docker images.
+1. Installing Docker and enabling the experimental mode.
+1. Building and tagging multi-platform Docker images.
 3. Pushing README file to Docker Hub.
-
-## Requirements
-
-* Docker version >= 18.09 for BuildKit support.
-* Docker experimental mode enabled on daemon.
-
-**NOTE:**
-To enable docker BuildKit by default, set daemon configuration in `/etc/docker/daemon.json` feature to true and restart the daemon:
-
-```bash
-echo '{"experimental":true,"features":{"buildkit":true}}'
-    | sudo tee /etc/docker/daemon.json
-sudo service docker restart    
-```
 
 ## Getting the script
 
 Create a container and copy the scripts file from it.
 
 ```bash
-id=$(docker create moikot/mua-docker-tools)
-docker cp $id:/scripts.sh /tmp/mua-scripts.sh && docker rm -v $id
+id=$(docker create moikot/docker-tools)
+docker cp $id:/scripts.sh /tmp/scripts.sh && docker rm -v $id
 ```
 
-## Building multi-architectural Docker images
+## Installing the latest Docker
+
+```bash
+/tmp/scripts.sh update_docker
+```
+
+The command updates Docker to the latest version and enables the experimental mode in the Docker daemon.
+
+## Building multi-platform Docker images
 
 * **Image name:** moikot/foobar
 * **Git tag:** v1.0.0
 * **Platforms:** linux/amd64, linux/arm64/v8
 
 ```bash
-/tmp/mua-scripts.sh build_images
+/tmp/scripts.sh build_images
   moikot/foobar v1.0.0 \
   linux/amd64,linux/arm64/v8 \
   [additional build arguments]
@@ -50,7 +44,7 @@ docker cp $id:/scripts.sh /tmp/mua-scripts.sh && docker rm -v $id
 ## Pushing README to Docker Hub
 
 ```bash
-/tmp/mua-scripts.sh push-readme \
+/tmp/scripts.sh push-readme \
   moikot/foobar README.md \
   [docker_hub_user] [docker_hub_password]
 ```
