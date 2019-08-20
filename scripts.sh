@@ -9,8 +9,7 @@ set -e
 #
 #   update_docker
 update_docker() {
-  echo '{"experimental":true,"features":{"buildkit":true}}' | \
-    sudo tee /etc/docker/daemon.json
+  echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
 
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
     sudo apt-key add -
