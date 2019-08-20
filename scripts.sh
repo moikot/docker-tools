@@ -8,6 +8,7 @@ set -e
 # Examples:
 #
 #   update_docker
+#
 update_docker() {
   echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
 
