@@ -1,8 +1,8 @@
 # Docker Hub Tools
-![GitHub](https://img.shields.io/github/license/moikot/mua-docker-tools)
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/moikot/mua-docker-tools)
-![Docker Image Layers](https://images.microbadger.com/badges/image/moikot/mua-docker-tools.svg)
-![Docker Image Version](https://images.microbadger.com/badges/version/moikot/mua-docker-tools.svg)
+![GitHub](https://img.shields.io/github/license/moikot/docker-tools)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/moikot/docker-tools)
+![Docker Image Layers](https://images.microbadger.com/badges/image/moikot/docker-tools.svg)
+![Docker Image Version](https://images.microbadger.com/badges/version/moikot/docker-tools.svg)
 
 A Docker container with a set of Bash scripts for:
 1. Building and tagging Docker images.
