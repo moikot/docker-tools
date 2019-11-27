@@ -4,7 +4,7 @@
 [![](https://images.microbadger.com/badges/image/moikot/docker-tools.svg)](https://hub.docker.com/r/moikot/docker-tools/tags "Image Tags")
 [![](https://images.microbadger.com/badges/commit/moikot/docker-tools.svg)](https://github.com/moikot/docker-tools/blob/master/Dockerfile "Dockerfile")
 
-A Docker container with a set of Bash scripts for:
+A tiny Docker image with a set of Bash scripts for:
 1. Installing Docker and enabling the experimental mode.
 1. Building and tagging multi-platform Docker images.
 3. Pushing README file to Docker Hub.
