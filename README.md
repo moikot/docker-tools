@@ -18,15 +18,15 @@ id=$(docker create moikot/docker-tools)
 docker cp $id:/scripts.sh /tmp/scripts.sh && docker rm -v $id
 ```
 
-## Installing the latest Docker
+## Install the latest Docker
 
 ```bash
 /tmp/scripts.sh update_docker
 ```
 
-The command updates Docker to the latest version and enables the experimental mode in the Docker daemon.
+The command updates Docker to the latest version and enables the experimental mode in Docker daemon.
 
-## Building multi-platform Docker images
+## Build multi-platform Docker images
 
 * **Image name:** moikot/foobar
 * **Git tag:** v1.0.0
@@ -41,10 +41,10 @@ The command updates Docker to the latest version and enables the experimental mo
 
 **NOTE:** Additional build arguments are passed directly to `docker buildx build` command.
 
-## Pushing README to Docker Hub
+## Push README.md to Docker Hub
 
 ```bash
-/tmp/scripts.sh push-readme \
+/tmp/scripts.sh push_readme \
   moikot/foobar README.md \
   [docker_hub_user] [docker_hub_password]
 ```
